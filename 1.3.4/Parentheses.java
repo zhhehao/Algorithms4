@@ -13,12 +13,14 @@ import edu.princeton.cs.algs4.StdOut;
         
         while (!StdIn.isEmpty()) {
             char ch = StdIn.readChar();
+            // 如果是左括号，就进栈
             if (ch == '(' || ch == '[' || ch == '{') {
                 charStack.push(ch);
             }
             else {
-                if (!charStack.isEmpty()) {
+                if (!charStack.isEmpty()) { // 如果栈空，就设定flag=false
                     char chInStack = charStack.pop();
+                    // 如果不匹配，就设定flag=false
                     if ((ch=='(' && chInStack!=')') || (ch=='[' && chInStack!=']') || (ch=='{' && chInStack!='}')) {
                         flag = false;
                         break;

@@ -1,6 +1,7 @@
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Stack<Item> implements Iterable<Item> 
 {
@@ -38,7 +39,7 @@ public class Stack<Item> implements Iterable<Item>
 	// 习题 1.3.4
 	public Item peek() {
 		if (isEmpty()) {
-			// 需要处理，可以参照答案，抛出异常
+			throw new NoSuchElementException("栈已空，好轻松！");
 		}
 		return first.item;
 	}
@@ -80,4 +81,9 @@ public class Stack<Item> implements Iterable<Item>
 		
 	// 	StdOut.println("(" + s.size() + " left on stack)");
 	// }
+
+	public static void main(String[] args) {
+		Stack<String> s = new Stack<String>();
+		System.out.println(s.peek());
+	}
 }
